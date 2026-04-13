@@ -449,6 +449,7 @@ export interface Transaction extends EntityMetadata {
   id: string;
   bookId: string;
   categoryId: string;
+  // Stored in minor units after schema normalization, for example CNY 20.50 -> 2050.
   amount: number;
   currency: 'CNY' | 'SGD' | 'USD' | 'MYR';
   direction: 'income' | 'expense' | 'transfer' | 'adjustment';
@@ -462,6 +463,9 @@ export interface Transaction extends EntityMetadata {
 // /app/src/shared/validation/schemas.ts
 import { z } from 'zod';
 
+const AMOUNT_PRECISION = 2;
+const MINOR_UNIT_SCALE = 10 ** AMOUNT_PRECISION;
+
 const metadataSchema = z.object({
   revision: z.number().int().nonnegative(),
   deletedAt: z.string().datetime().nullable(),
@@ -469,9 +473,17 @@ const metadataSchema = z.object({
   deviceId: z.string().min(1),
   createdAt: z.string().datetime(),
   updatedAt: z.string().datetime()
-});
+}).strict();
 
 const currencySchema = z.enum(['CNY', 'SGD', 'USD', 'MYR']);
+const amountSchema = z
+  .number()
+  .finite()
+  .refine((value) => {
+    const normalized = Number(value.toFixed(AMOUNT_PRECISION));
+    return Math.abs(value - normalized) < Number.EPSILON;
+  }, `Amount must use at most ${AMOUNT_PRECISION} decimal places`)
+  .transform((value) => Math.round(value * MINOR_UNIT_SCALE));
 
 export const categorySchema = metadataSchema.extend({
   id: z.string().min(1),
@@ -482,19 +494,19 @@ export const categorySchema = metadataSchema.extend({
   currency: currencySchema,
   sortOrder: z.number().int(),
   isArchived: z.boolean()
-});
+}).strict();
 
 export const transactionSchema = metadataSchema.extend({
   id: z.string().min(1),
   bookId: z.string().min(1),
   categoryId: z.string().min(1),
-  amount: z.number(),
+  amount: amountSchema,
   currency: currencySchema,
   direction: z.enum(['income', 'expense', 'transfer', 'adjustment']),
   purpose: z.string().min(1),
   description: z.string(),
   occurredAt: z.string().datetime()
-});
+}).strict();
 ```
 
 - [ ] **Step 4: Run the schema tests**
