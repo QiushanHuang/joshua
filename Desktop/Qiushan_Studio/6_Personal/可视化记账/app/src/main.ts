@@ -7,4 +7,7 @@ if (!target) {
   throw new Error('Missing #app mount node');
 }
 
-bootstrapApp(target);
+void bootstrapApp(target).catch((error) => {
+  console.error('Failed to bootstrap app', error);
+  target.textContent = 'Failed to bootstrap local book.';
+});
