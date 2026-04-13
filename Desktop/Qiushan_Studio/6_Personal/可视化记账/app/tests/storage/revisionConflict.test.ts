@@ -60,6 +60,27 @@ describe('CategoryRepository', () => {
     ).rejects.toThrow('Revision conflict');
   });
 
+  it('writes an operation log entry on successful put', async () => {
+    await repository.put({
+      id: 'cat_002',
+      bookId: 'book_local',
+      parentId: null,
+      name: '支付宝',
+      kind: 'group',
+      currency: 'CNY',
+      sortOrder: 1,
+      isArchived: false,
+      revision: 1,
+      deletedAt: null,
+      updatedBy: 'local-user',
+      deviceId: 'device_local',
+      createdAt: '2026-04-13T00:00:00.000Z',
+      updatedAt: '2026-04-13T00:00:00.000Z'
+    });
+
+    expect(await db.operations.count()).toBe(1);
+  });
+
   it('rejects concurrent writes from separate connections that reuse the same next revision', async () => {
     const dbName = `asset-tracker-db-category-race-${crypto.randomUUID()}`;
     const writerDbA = new AssetTrackerDb(dbName);

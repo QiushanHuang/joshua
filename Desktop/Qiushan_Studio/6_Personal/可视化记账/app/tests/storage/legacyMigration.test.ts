@@ -38,6 +38,13 @@ describe('buildLegacyMigrationManifest', () => {
     expect(manifest.report.totalTransactions).toBeGreaterThan(0);
   });
 
+  it('returns the same IDs for the same legacy payload', () => {
+    const manifestA = buildLegacyMigrationManifest(fixture as never);
+    const manifestB = buildLegacyMigrationManifest(fixture as never);
+
+    expect(manifestA.categoryPathToId).toEqual(manifestB.categoryPathToId);
+  });
+
   it('generates distinct deterministic ids for escaped path segments', () => {
     const leftPath = buildCategoryPath(null, 'A/B__C');
     const rightPath = buildCategoryPath(null, 'A__B/C');
