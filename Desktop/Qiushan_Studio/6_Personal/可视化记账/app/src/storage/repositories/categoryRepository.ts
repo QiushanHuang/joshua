@@ -18,6 +18,10 @@ function buildPutOperation(category: Category): OperationLogEntry {
 export class CategoryRepository {
   constructor(private readonly db: AssetTrackerDb) {}
 
+  listByBook(bookId: string): Promise<Category[]> {
+    return this.db.categories.where('bookId').equals(bookId).sortBy('sortOrder');
+  }
+
   async put(category: Category): Promise<void> {
     await this.db.transaction('rw', this.db.categories, this.db.operations, async () => {
       const existing = await this.db.categories.get(category.id);

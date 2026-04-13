@@ -1,29 +1,225 @@
 :root {
   color-scheme: light;
   font-family: "SF Pro Text", "PingFang SC", sans-serif;
-  background: #f5f7fb;
-  color: #152033;
+  background: #f3ecdf;
+  color: #1f1914;
+  --surface: rgba(255, 250, 243, 0.88);
+  --surface-strong: rgba(255, 255, 255, 0.72);
+  --line: rgba(31, 25, 20, 0.12);
+  --ink-soft: rgba(31, 25, 20, 0.7);
+  --accent: #a14f2d;
+  --accent-strong: #7e381c;
+  --positive: #236a3b;
+  --shadow: 0 24px 80px rgba(75, 40, 18, 0.12);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(161, 79, 45, 0.14), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(89, 118, 101, 0.16), transparent 24%),
+    linear-gradient(180deg, #f7f0e5 0%, #efe4d4 100%);
 }
 
 .app-shell {
   min-height: 100vh;
   display: grid;
-  grid-template-rows: 64px 1fr;
+  grid-template-rows: 72px 1fr;
 }
 
 .app-shell__header {
   display: flex;
   align-items: center;
-  padding: 0 24px;
-  border-bottom: 1px solid #d9e2f2;
-  background: #ffffff;
-  font-weight: 600;
+  justify-content: space-between;
+  padding: 0 28px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 248, 240, 0.72);
+  backdrop-filter: blur(18px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .app-shell__main {
-  padding: 24px;
+  padding: 28px;
+}
+
+.workspace-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  gap: 18px;
+}
+
+.workspace-grid > [data-panel="summary"] {
+  grid-column: 1 / -1;
+}
+
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 20px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 247, 238, 0.92)),
+    var(--surface);
+  box-shadow: var(--shadow);
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.panel:hover {
+  transform: translateY(-1px);
+  border-color: rgba(161, 79, 45, 0.2);
+  box-shadow: 0 28px 90px rgba(75, 40, 18, 0.16);
+}
+
+.panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.panel__header h2 {
+  margin: 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.panel__empty {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.metric-card {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+  border-radius: 18px;
+  background: var(--surface-strong);
+  border: 1px solid rgba(161, 79, 45, 0.08);
+}
+
+.metric-card span {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+.metric-card strong {
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  font-weight: 700;
+}
+
+form {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+input,
+select {
+  min-height: 44px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.88);
+  padding: 0 14px;
+  color: inherit;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid rgba(161, 79, 45, 0.18);
+  border-color: rgba(161, 79, 45, 0.4);
+}
+
+button {
+  min-height: 44px;
+  border: 0;
+  border-radius: 14px;
+  padding: 0 16px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #fff9f4;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 140ms ease, filter 140ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+li {
+  display: grid;
+  gap: 4px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(31, 25, 20, 0.08);
+  background: rgba(255, 255, 255, 0.64);
+}
+
+li[data-depth="1"] {
+  margin-left: 16px;
+}
+
+li[data-depth="2"] {
+  margin-left: 32px;
+}
+
+li strong {
+  font-size: 0.95rem;
+}
+
+li span {
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+}
+
+@media (max-width: 960px) {
+  .app-shell__main {
+    padding: 18px;
+  }
+
+  .workspace-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .app-shell__header {
+    padding: 0 18px;
+    font-size: 0.88rem;
+  }
+
+  .metric-grid {
+    grid-template-columns: 1fr;
+  }
 }
