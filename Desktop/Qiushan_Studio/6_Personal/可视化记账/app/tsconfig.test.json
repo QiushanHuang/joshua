@@ -9,7 +9,9 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "noEmit": true,
-    "lib": ["ES2022", "DOM"]
+    "skipLibCheck": true,
+    "lib": ["ES2022", "DOM"],
+    "types": ["vitest/globals"]
   },
-  "include": ["src"]
+  "include": ["tests/**/*.test.ts"]
 }

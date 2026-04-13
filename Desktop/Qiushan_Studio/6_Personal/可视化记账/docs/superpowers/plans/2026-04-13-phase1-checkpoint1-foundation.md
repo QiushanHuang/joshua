@@ -4,7 +4,7 @@
 
 **Goal:** Build the new local-only bookkeeping foundation: isolated `Vite + TypeScript` app shell, IndexedDB persistence with revision/operation-log support, deterministic legacy migration, and a minimal boot flow that can load a migrated local book safely.
 
-**Architecture:** Keep the old app read-only and build the new implementation in `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app` so legacy behavior stays available until cutover. Use `Dexie` to wrap IndexedDB, `Zod` to validate legacy payloads and migration manifests, and a small application shell that loads the single local book through repositories and services instead of direct browser storage access.
+**Architecture:** Keep the old app read-only and build the new implementation in the repo's `app/` workspace so legacy behavior stays available until cutover. Use `Dexie` to wrap IndexedDB, `Zod` to validate legacy payloads and migration manifests, and a small application shell that loads the single local book through repositories and services instead of direct browser storage access.
 
 **Tech Stack:** Vite, TypeScript, Dexie, Zod, Vitest, jsdom, npm
 
@@ -25,6 +25,8 @@
 
 - Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/package.json`
 - Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tsconfig.json`
+- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tsconfig.node.json`
+- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tsconfig.test.json`
 - Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/vite.config.ts`
 - Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/vitest.config.ts`
 - Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/index.html`
@@ -79,6 +81,8 @@
 - Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/legacy/README.md`
 - Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/package.json`
 - Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tsconfig.json`
+- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tsconfig.node.json`
+- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tsconfig.test.json`
 - Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/vite.config.ts`
 - Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/vitest.config.ts`
 - Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/index.html`
@@ -144,15 +148,55 @@ Expected: FAIL because the `app` workspace and `buildShell` export do not exist 
     "target": "ES2022",
     "useDefineForClassFields": true,
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "strict": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "lib": ["ES2022", "DOM"],
-    "types": ["vitest/globals", "node"]
+    "noEmit": true,
+    "lib": ["ES2022", "DOM"]
   },
-  "include": ["src", "tests", "vite.config.ts", "vitest.config.ts"]
+  "include": ["src"]
+}
+```
+
+```json
+// /app/tsconfig.node.json
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "noEmit": true,
+    "lib": ["ES2022"],
+    "types": ["node"]
+  },
+  "include": ["vite.config.ts", "vitest.config.ts"]
+}
+```
+
+```json
+// /app/tsconfig.test.json
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "noEmit": true,
+    "lib": ["ES2022", "DOM"],
+    "types": ["vitest/globals"]
+  },
+  "include": ["tests/**/*.test.ts"]
 }
 ```
 
