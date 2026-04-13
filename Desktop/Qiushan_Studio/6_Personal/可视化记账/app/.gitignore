@@ -1,0 +1,7 @@
+node_modules/
+dist/
+*.tsbuildinfo
+src/**/*.js
+tests/**/*.js
+vite.config.js
+vitest.config.js
