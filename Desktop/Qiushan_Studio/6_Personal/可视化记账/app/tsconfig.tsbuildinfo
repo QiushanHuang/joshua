@@ -1,0 +1,1 @@
+{"root":["./src/main.ts","./src/app/bootstrap.ts","./src/app/router.ts","./src/app/shell.ts","./tests/app/bootstrap.test.ts","./vite.config.ts","./vitest.config.ts"],"version":"5.9.3"}
