@@ -30,9 +30,9 @@ describe('renderApp', () => {
       target
     });
 
-    expect(target.querySelector('[data-panel="summary"]')).not.toBeNull();
-    expect(target.querySelector('[data-panel="categories"]')).not.toBeNull();
-    expect(target.querySelector('[data-panel="transactions"]')).not.toBeNull();
+    expect(target.querySelector('#dashboard [data-panel="summary"]')).not.toBeNull();
+    expect(target.querySelector('#categories [data-panel="categories"]')).not.toBeNull();
+    expect(target.querySelector('#transactions [data-panel="transactions"]')).not.toBeNull();
   });
 
   it('escapes user-provided names and descriptions before rendering', async () => {

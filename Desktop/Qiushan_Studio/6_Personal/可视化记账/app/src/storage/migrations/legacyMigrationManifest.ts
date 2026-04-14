@@ -15,6 +15,8 @@ export function buildLegacyMigrationManifest(
   input: unknown
 ): LegacyMigrationManifest {
   const parsed = parseLegacyAssetTrackerData(input);
+  const initialAssetMap =
+    parsed.initialAssets && !Array.isArray(parsed.initialAssets) ? parsed.initialAssets : undefined;
   const categoryPathToId: Record<string, string> = {};
   const openingAdjustments: LegacyOpeningAdjustment[] = [];
 
@@ -28,7 +30,7 @@ export function buildLegacyMigrationManifest(
     categoryPathToId[path] = deterministicId('cat', path);
 
     if (isLeafCategory(node)) {
-      const initialAmount = parsed.initialAssets?.[path] ?? parsed.initialAssets?.[rawPath];
+      const initialAmount = initialAssetMap?.[path] ?? initialAssetMap?.[rawPath];
       const fallbackAmount = typeof node.balance === 'number' ? node.balance : undefined;
       const amount = initialAmount ?? fallbackAmount;
 

@@ -22,16 +22,26 @@ export class TransactionRepository {
     return this.db.transactions.where('bookId').equals(bookId).sortBy('occurredAt');
   }
 
-  async put(transaction: Transaction): Promise<void> {
-    await this.db.transaction('rw', this.db.transactions, this.db.operations, async () => {
-      const existing = await this.db.transactions.get(transaction.id);
+  get(transactionId: string): Promise<Transaction | undefined> {
+    return this.db.transactions.get(transactionId);
+  }
 
-      if (existing && transaction.revision <= existing.revision) {
-        throw new Error('Revision conflict');
+  async put(transaction: Transaction): Promise<void> {
+    await this.putMany([transaction]);
+  }
+
+  async putMany(transactions: Transaction[]): Promise<void> {
+    await this.db.transaction('rw', this.db.transactions, this.db.operations, async () => {
+      for (const transaction of transactions) {
+        const existing = await this.db.transactions.get(transaction.id);
+
+        if (existing && transaction.revision <= existing.revision) {
+          throw new Error('Revision conflict');
+        }
       }
 
-      await this.db.transactions.put(transaction);
-      await this.db.operations.put(buildPutOperation(transaction));
+      await this.db.transactions.bulkPut(transactions);
+      await this.db.operations.bulkPut(transactions.map((transaction) => buildPutOperation(transaction)));
     });
   }
 }

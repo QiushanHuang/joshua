@@ -1,5 +1,6 @@
 import type { Category, CurrencyCode } from '../../shared/types/entities';
 import { categorySchema } from '../../shared/validation/schemas';
+import { createMetadata } from '../../shared/utils/entityMetadata';
 import { AssetTrackerDb } from '../../storage/db';
 import { CategoryRepository } from '../../storage/repositories/categoryRepository';
 
@@ -23,8 +24,16 @@ export async function createCategory(
     throw new Error('Category name is required');
   }
 
-  if (input.parentId && !existing.some((item) => item.id === input.parentId)) {
-    throw new Error('Parent category does not exist');
+  if (input.parentId) {
+    const parent = existing.find((item) => item.id === input.parentId && item.deletedAt === null);
+
+    if (!parent) {
+      throw new Error('Parent category does not exist');
+    }
+
+    if (parent.currency !== input.currency) {
+      throw new Error('Child category currency must match parent category currency');
+    }
   }
 
   if (
@@ -46,12 +55,7 @@ export async function createCategory(
     currency: input.currency,
     sortOrder: siblingCount,
     isArchived: false,
-    revision: 1,
-    deletedAt: null,
-    updatedBy: 'local-user',
-    deviceId: 'device_local',
-    createdAt: now,
-    updatedAt: now
+    ...createMetadata(now)
   });
 
   await repository.put(category);

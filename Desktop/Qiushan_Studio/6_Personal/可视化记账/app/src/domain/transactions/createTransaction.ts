@@ -1,5 +1,7 @@
-import type { Transaction } from '../../shared/types/entities';
+import type { CurrencyCode, Transaction, TransactionDirection } from '../../shared/types/entities';
 import { transactionSchema } from '../../shared/validation/schemas';
+import { createMetadata } from '../../shared/utils/entityMetadata';
+import { toMinorUnits } from '../../shared/utils/money';
 import { AssetTrackerDb } from '../../storage/db';
 import { CategoryRepository } from '../../storage/repositories/categoryRepository';
 import { TransactionRepository } from '../../storage/repositories/transactionRepository';
@@ -8,14 +10,19 @@ export interface CreateTransactionInput {
   bookId: string;
   categoryId: string;
   amount: number;
-  currency: 'CNY' | 'SGD' | 'USD' | 'MYR';
-  direction: 'income' | 'expense' | 'transfer' | 'adjustment';
+  currency: CurrencyCode;
+  direction: TransactionDirection;
   purpose: string;
   description: string;
   occurredAt: string;
+  automationRuleId?: string | null;
+  automationOccurrenceDate?: string | null;
 }
 
-function normalizeAmount(amount: number, direction: CreateTransactionInput['direction']): number {
+export function normalizeTransactionAmount(
+  amount: number,
+  direction: CreateTransactionInput['direction']
+): number {
   if (direction === 'income') {
     return Math.abs(amount);
   }
@@ -53,18 +60,15 @@ export async function createTransaction(
     id: `txn_${crypto.randomUUID()}`,
     bookId: input.bookId,
     categoryId: input.categoryId,
-    amount: normalizeAmount(input.amount, input.direction),
+    amount: toMinorUnits(normalizeTransactionAmount(input.amount, input.direction)),
     currency: input.currency,
     direction: input.direction,
     purpose: input.purpose.trim(),
     description: input.description.trim(),
     occurredAt: input.occurredAt,
-    revision: 1,
-    deletedAt: null,
-    updatedBy: 'local-user',
-    deviceId: 'device_local',
-    createdAt: now,
-    updatedAt: now
+    automationRuleId: input.automationRuleId ?? null,
+    automationOccurrenceDate: input.automationOccurrenceDate ?? null,
+    ...createMetadata(now)
   });
 
   await repository.put(transaction);

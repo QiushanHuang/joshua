@@ -49,6 +49,17 @@ export interface LegacyTemplateInput {
   description?: string;
 }
 
+export interface LegacyInitialAssetEntry {
+  id?: string;
+  time: string;
+  category: string;
+  subcategory?: string;
+  amount: number;
+  currency?: CurrencyCode;
+  createdAt?: string;
+  note?: string;
+}
+
 export interface LegacySettingsInput {
   baseCurrency?: CurrencyCode;
   exchangeRates?: Partial<Record<CurrencyCode, number>>;
@@ -62,7 +73,7 @@ export interface LegacyAssetTrackerData {
   transactions: LegacyTransactionInput[];
   automationRules?: LegacyAutomationRuleInput[];
   purposeCategories?: string[];
-  initialAssets?: Record<string, number>;
+  initialAssets?: Record<string, number> | LegacyInitialAssetEntry[];
   memo?: string;
   transactionTemplates?: LegacyTemplateInput[];
   settings?: LegacySettingsInput;
@@ -91,6 +102,15 @@ function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null;
 }
 
+function isLegacyInitialAssetEntry(value: unknown): value is LegacyInitialAssetEntry {
+  return (
+    isRecord(value) &&
+    typeof value.time === 'string' &&
+    typeof value.category === 'string' &&
+    typeof value.amount === 'number'
+  );
+}
+
 export function parseLegacyAssetTrackerData(input: unknown): LegacyAssetTrackerData {
   if (!isRecord(input)) {
     throw new Error('Invalid legacy asset tracker data');
@@ -109,9 +129,12 @@ export function parseLegacyAssetTrackerData(input: unknown): LegacyAssetTrackerD
     purposeCategories: Array.isArray(input.purposeCategories)
       ? (input.purposeCategories as string[])
       : undefined,
-    initialAssets: isRecord(input.initialAssets)
-      ? (input.initialAssets as Record<string, number>)
-      : undefined,
+    initialAssets:
+      Array.isArray(input.initialAssets) && input.initialAssets.every(isLegacyInitialAssetEntry)
+        ? (input.initialAssets as LegacyInitialAssetEntry[])
+        : isRecord(input.initialAssets)
+          ? (input.initialAssets as Record<string, number>)
+          : undefined,
     memo: typeof input.memo === 'string' ? input.memo : undefined,
     transactionTemplates: Array.isArray(input.transactionTemplates)
       ? (input.transactionTemplates as LegacyTemplateInput[])

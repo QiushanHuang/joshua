@@ -27,6 +27,7 @@ describe('repository contracts', () => {
       name: '默认账本',
       type: 'private',
       baseCurrency: 'CNY',
+      memo: '',
       revision: 1,
       deletedAt: null,
       updatedBy: 'local-user',

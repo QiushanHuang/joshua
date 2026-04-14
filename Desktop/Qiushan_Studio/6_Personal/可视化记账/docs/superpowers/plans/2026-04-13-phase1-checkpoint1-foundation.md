@@ -14,83 +14,83 @@
 
 ### Legacy Inputs
 
-- Read-only reference: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/记账/index.html`
-- Read-only reference: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/记账/script.js`
-- Read-only reference: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/记账/styles.css`
-- Ignore for migration logic: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/index.html`
-- Ignore for migration logic: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/script.js`
-- Ignore for migration logic: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/styles.css`
+- Read-only reference: `PROJECT_ROOT/记账/index.html`
+- Read-only reference: `PROJECT_ROOT/记账/script.js`
+- Read-only reference: `PROJECT_ROOT/记账/styles.css`
+- Ignore for migration logic: `PROJECT_ROOT/index.html`
+- Ignore for migration logic: `PROJECT_ROOT/script.js`
+- Ignore for migration logic: `PROJECT_ROOT/styles.css`
 
 ### New App Workspace
 
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/package.json`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tsconfig.json`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tsconfig.node.json`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tsconfig.test.json`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/vite.config.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/vitest.config.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/index.html`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/main.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/app/bootstrap.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/app/shell.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/app/router.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/styles/base.css`
+- Create: `PROJECT_ROOT/app/package.json`
+- Create: `PROJECT_ROOT/app/tsconfig.json`
+- Create: `PROJECT_ROOT/app/tsconfig.node.json`
+- Create: `PROJECT_ROOT/app/tsconfig.test.json`
+- Create: `PROJECT_ROOT/app/vite.config.ts`
+- Create: `PROJECT_ROOT/app/vitest.config.ts`
+- Create: `PROJECT_ROOT/app/index.html`
+- Create: `PROJECT_ROOT/app/src/main.ts`
+- Create: `PROJECT_ROOT/app/src/app/bootstrap.ts`
+- Create: `PROJECT_ROOT/app/src/app/shell.ts`
+- Create: `PROJECT_ROOT/app/src/app/router.ts`
+- Create: `PROJECT_ROOT/app/src/styles/base.css`
 
 ### Shared Domain and Validation
 
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/shared/types/entities.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/shared/types/metadata.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/shared/validation/schemas.ts`
+- Create: `PROJECT_ROOT/app/src/shared/types/entities.ts`
+- Create: `PROJECT_ROOT/app/src/shared/types/metadata.ts`
+- Create: `PROJECT_ROOT/app/src/shared/validation/schemas.ts`
 
 ### Storage Layer
 
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/storage/db.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/storage/schema.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/storage/repositories/bookRepository.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/storage/repositories/categoryRepository.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/storage/repositories/transactionRepository.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/storage/repositories/operationRepository.ts`
+- Create: `PROJECT_ROOT/app/src/storage/db.ts`
+- Create: `PROJECT_ROOT/app/src/storage/schema.ts`
+- Create: `PROJECT_ROOT/app/src/storage/repositories/bookRepository.ts`
+- Create: `PROJECT_ROOT/app/src/storage/repositories/categoryRepository.ts`
+- Create: `PROJECT_ROOT/app/src/storage/repositories/transactionRepository.ts`
+- Create: `PROJECT_ROOT/app/src/storage/repositories/operationRepository.ts`
 
 ### Migration Layer
 
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/storage/migrations/types.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/storage/migrations/legacyDeterministicId.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/storage/migrations/legacyCategoryPath.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/storage/migrations/legacyMigrationManifest.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/storage/migrations/legacySnapshot.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/storage/migrations/migrateLegacyAssetTracker.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/domain/bootstrap/loadOrCreateLocalBook.ts`
+- Create: `PROJECT_ROOT/app/src/storage/migrations/types.ts`
+- Create: `PROJECT_ROOT/app/src/storage/migrations/legacyDeterministicId.ts`
+- Create: `PROJECT_ROOT/app/src/storage/migrations/legacyCategoryPath.ts`
+- Create: `PROJECT_ROOT/app/src/storage/migrations/legacyMigrationManifest.ts`
+- Create: `PROJECT_ROOT/app/src/storage/migrations/legacySnapshot.ts`
+- Create: `PROJECT_ROOT/app/src/storage/migrations/migrateLegacyAssetTracker.ts`
+- Create: `PROJECT_ROOT/app/src/domain/bootstrap/loadOrCreateLocalBook.ts`
 
 ### Tests and Fixtures
 
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tests/fixtures/legacy/assetTrackerData.sample.json`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tests/app/bootstrap.test.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tests/shared/schemas.test.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tests/storage/dbSchema.test.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tests/storage/legacyMigration.test.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tests/storage/revisionConflict.test.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tests/domain/loadOrCreateLocalBook.test.ts`
+- Create: `PROJECT_ROOT/app/tests/fixtures/legacy/assetTrackerData.sample.json`
+- Create: `PROJECT_ROOT/app/tests/app/bootstrap.test.ts`
+- Create: `PROJECT_ROOT/app/tests/shared/schemas.test.ts`
+- Create: `PROJECT_ROOT/app/tests/storage/dbSchema.test.ts`
+- Create: `PROJECT_ROOT/app/tests/storage/legacyMigration.test.ts`
+- Create: `PROJECT_ROOT/app/tests/storage/revisionConflict.test.ts`
+- Create: `PROJECT_ROOT/app/tests/domain/loadOrCreateLocalBook.test.ts`
 
 ### Notes
 
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/legacy/README.md`
+- Create: `PROJECT_ROOT/legacy/README.md`
 
 ## Task 1: Establish the New Workspace and Freeze Legacy Scope
 
 **Files:**
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/legacy/README.md`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/package.json`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tsconfig.json`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tsconfig.node.json`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tsconfig.test.json`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/vite.config.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/vitest.config.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/index.html`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/main.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/app/bootstrap.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/app/shell.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/styles/base.css`
-- Test: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tests/app/bootstrap.test.ts`
+- Create: `PROJECT_ROOT/legacy/README.md`
+- Create: `PROJECT_ROOT/app/package.json`
+- Create: `PROJECT_ROOT/app/tsconfig.json`
+- Create: `PROJECT_ROOT/app/tsconfig.node.json`
+- Create: `PROJECT_ROOT/app/tsconfig.test.json`
+- Create: `PROJECT_ROOT/app/vite.config.ts`
+- Create: `PROJECT_ROOT/app/vitest.config.ts`
+- Create: `PROJECT_ROOT/app/index.html`
+- Create: `PROJECT_ROOT/app/src/main.ts`
+- Create: `PROJECT_ROOT/app/src/app/bootstrap.ts`
+- Create: `PROJECT_ROOT/app/src/app/shell.ts`
+- Create: `PROJECT_ROOT/app/src/styles/base.css`
+- Test: `PROJECT_ROOT/app/tests/app/bootstrap.test.ts`
 
 - [ ] **Step 1: Write the failing shell smoke test**
 
@@ -110,7 +110,7 @@ describe('buildShell', () => {
 
 - [ ] **Step 2: Run the test to verify it fails**
 
-Run: `cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app && npm test -- --run tests/app/bootstrap.test.ts`
+Run: `cd PROJECT_ROOT/app && npm test -- --run tests/app/bootstrap.test.ts`
 Expected: FAIL because the `app` workspace and `buildShell` export do not exist yet.
 
 - [ ] **Step 3: Scaffold the Vite workspace and shell**
@@ -327,26 +327,26 @@ body {
 ```md
 # Legacy Source of Truth
 
-- Canonical legacy implementation: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/记账`
+- Canonical legacy implementation: `PROJECT_ROOT/记账`
 - Root-level `index.html`, `script.js`, `styles.css`, and `README.md` are treated as older duplicates and must not be used for migration rules.
-- The new app lives in `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app`.
+- The new app lives in `PROJECT_ROOT/app`.
 - Do not edit legacy files during checkpoint 1.
 ```
 
 - [ ] **Step 4: Install dependencies and run the smoke test**
 
-Run: `cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app && npm install && npm test -- --run tests/app/bootstrap.test.ts`
+Run: `cd PROJECT_ROOT/app && npm install && npm test -- --run tests/app/bootstrap.test.ts`
 Expected: PASS with `1 passed`.
 
 - [ ] **Step 5: Verify the app builds**
 
-Run: `cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app && npm run build`
+Run: `cd PROJECT_ROOT/app && npm run build`
 Expected: PASS and emit a `dist/` bundle.
 
 - [ ] **Step 6: Commit**
 
 ```bash
-cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账
+cd PROJECT_ROOT
 git add legacy/README.md app
 git commit -m "feat: scaffold foundation app workspace"
 ```
@@ -354,10 +354,10 @@ git commit -m "feat: scaffold foundation app workspace"
 ## Task 2: Define Persistent Entity Metadata and Validation Schemas
 
 **Files:**
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/shared/types/metadata.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/shared/types/entities.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/shared/validation/schemas.ts`
-- Test: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tests/shared/schemas.test.ts`
+- Create: `PROJECT_ROOT/app/src/shared/types/metadata.ts`
+- Create: `PROJECT_ROOT/app/src/shared/types/entities.ts`
+- Create: `PROJECT_ROOT/app/src/shared/validation/schemas.ts`
+- Test: `PROJECT_ROOT/app/tests/shared/schemas.test.ts`
 
 - [ ] **Step 1: Write the failing schema tests**
 
@@ -406,7 +406,7 @@ describe('entity schemas', () => {
 
 - [ ] **Step 2: Run the schema tests to verify they fail**
 
-Run: `cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app && npm test -- --run tests/shared/schemas.test.ts`
+Run: `cd PROJECT_ROOT/app && npm test -- --run tests/shared/schemas.test.ts`
 Expected: FAIL because the schema module does not exist.
 
 - [ ] **Step 3: Implement metadata types and schemas**
@@ -511,13 +511,13 @@ export const transactionSchema = metadataSchema.extend({
 
 - [ ] **Step 4: Run the schema tests**
 
-Run: `cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app && npm test -- --run tests/shared/schemas.test.ts`
+Run: `cd PROJECT_ROOT/app && npm test -- --run tests/shared/schemas.test.ts`
 Expected: PASS with `2 passed`.
 
 - [ ] **Step 5: Commit**
 
 ```bash
-cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账
+cd PROJECT_ROOT
 git add app/src/shared app/tests/shared
 git commit -m "feat: add core entity schemas"
 ```
@@ -525,14 +525,14 @@ git commit -m "feat: add core entity schemas"
 ## Task 3: Implement IndexedDB Schema, Repositories, and Revision Protection
 
 **Files:**
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/storage/schema.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/storage/db.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/storage/repositories/bookRepository.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/storage/repositories/categoryRepository.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/storage/repositories/transactionRepository.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/storage/repositories/operationRepository.ts`
-- Test: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tests/storage/dbSchema.test.ts`
-- Test: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tests/storage/revisionConflict.test.ts`
+- Create: `PROJECT_ROOT/app/src/storage/schema.ts`
+- Create: `PROJECT_ROOT/app/src/storage/db.ts`
+- Create: `PROJECT_ROOT/app/src/storage/repositories/bookRepository.ts`
+- Create: `PROJECT_ROOT/app/src/storage/repositories/categoryRepository.ts`
+- Create: `PROJECT_ROOT/app/src/storage/repositories/transactionRepository.ts`
+- Create: `PROJECT_ROOT/app/src/storage/repositories/operationRepository.ts`
+- Test: `PROJECT_ROOT/app/tests/storage/dbSchema.test.ts`
+- Test: `PROJECT_ROOT/app/tests/storage/revisionConflict.test.ts`
 
 - [ ] **Step 1: Write the failing database tests**
 
@@ -617,7 +617,7 @@ describe('CategoryRepository', () => {
 
 - [ ] **Step 2: Run the database tests to verify they fail**
 
-Run: `cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app && npm test -- --run tests/storage/dbSchema.test.ts tests/storage/revisionConflict.test.ts`
+Run: `cd PROJECT_ROOT/app && npm test -- --run tests/storage/dbSchema.test.ts tests/storage/revisionConflict.test.ts`
 Expected: FAIL because the database and repositories do not exist yet.
 
 - [ ] **Step 3: Implement the Dexie schema and repositories**
@@ -791,13 +791,13 @@ export class OperationRepository {
 
 - [ ] **Step 4: Run the database tests**
 
-Run: `cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app && npm test -- --run tests/storage/dbSchema.test.ts tests/storage/revisionConflict.test.ts`
+Run: `cd PROJECT_ROOT/app && npm test -- --run tests/storage/dbSchema.test.ts tests/storage/revisionConflict.test.ts`
 Expected: PASS with `2 passed`.
 
 - [ ] **Step 5: Commit**
 
 ```bash
-cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账
+cd PROJECT_ROOT
 git add app/src/storage app/tests/storage
 git commit -m "feat: add indexeddb foundation with revision protection"
 ```
@@ -805,14 +805,14 @@ git commit -m "feat: add indexeddb foundation with revision protection"
 ## Task 4: Implement Deterministic Legacy Migration and Dry-Run Reporting
 
 **Files:**
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tests/fixtures/legacy/assetTrackerData.sample.json`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/storage/migrations/types.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/storage/migrations/legacyDeterministicId.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/storage/migrations/legacyCategoryPath.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/storage/migrations/legacyMigrationManifest.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/storage/migrations/legacySnapshot.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/storage/migrations/migrateLegacyAssetTracker.ts`
-- Test: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tests/storage/legacyMigration.test.ts`
+- Create: `PROJECT_ROOT/app/tests/fixtures/legacy/assetTrackerData.sample.json`
+- Create: `PROJECT_ROOT/app/src/storage/migrations/types.ts`
+- Create: `PROJECT_ROOT/app/src/storage/migrations/legacyDeterministicId.ts`
+- Create: `PROJECT_ROOT/app/src/storage/migrations/legacyCategoryPath.ts`
+- Create: `PROJECT_ROOT/app/src/storage/migrations/legacyMigrationManifest.ts`
+- Create: `PROJECT_ROOT/app/src/storage/migrations/legacySnapshot.ts`
+- Create: `PROJECT_ROOT/app/src/storage/migrations/migrateLegacyAssetTracker.ts`
+- Test: `PROJECT_ROOT/app/tests/storage/legacyMigration.test.ts`
 
 - [ ] **Step 1: Write the failing migration tests**
 
@@ -841,7 +841,7 @@ describe('buildLegacyMigrationManifest', () => {
 
 - [ ] **Step 2: Run the migration test to verify it fails**
 
-Run: `cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app && npm test -- --run tests/storage/legacyMigration.test.ts`
+Run: `cd PROJECT_ROOT/app && npm test -- --run tests/storage/legacyMigration.test.ts`
 Expected: FAIL because the fixture and migration helpers do not exist.
 
 - [ ] **Step 3: Add the legacy fixture and migration helpers**
@@ -1014,13 +1014,13 @@ export async function migrateLegacyAssetTracker(db: AssetTrackerDb, input: unkno
 
 - [ ] **Step 4: Run the migration tests**
 
-Run: `cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app && npm test -- --run tests/storage/legacyMigration.test.ts`
+Run: `cd PROJECT_ROOT/app && npm test -- --run tests/storage/legacyMigration.test.ts`
 Expected: PASS with `2 passed`.
 
 - [ ] **Step 5: Commit**
 
 ```bash
-cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账
+cd PROJECT_ROOT
 git add app/src/storage/migrations app/tests/fixtures/legacy app/tests/storage/legacyMigration.test.ts
 git commit -m "feat: add deterministic legacy migration manifest"
 ```
@@ -1028,9 +1028,9 @@ git commit -m "feat: add deterministic legacy migration manifest"
 ## Task 5: Load or Create the Local Book Through Repositories
 
 **Files:**
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/domain/bootstrap/loadOrCreateLocalBook.ts`
-- Modify: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/app/bootstrap.ts`
-- Test: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tests/domain/loadOrCreateLocalBook.test.ts`
+- Create: `PROJECT_ROOT/app/src/domain/bootstrap/loadOrCreateLocalBook.ts`
+- Modify: `PROJECT_ROOT/app/src/app/bootstrap.ts`
+- Test: `PROJECT_ROOT/app/tests/domain/loadOrCreateLocalBook.test.ts`
 
 - [ ] **Step 1: Write the failing bootstrap domain test**
 
@@ -1060,7 +1060,7 @@ describe('loadOrCreateLocalBook', () => {
 
 - [ ] **Step 2: Run the load/create test to verify it fails**
 
-Run: `cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app && npm test -- --run tests/domain/loadOrCreateLocalBook.test.ts`
+Run: `cd PROJECT_ROOT/app && npm test -- --run tests/domain/loadOrCreateLocalBook.test.ts`
 Expected: FAIL because the domain loader does not exist.
 
 - [ ] **Step 3: Implement the local-book bootstrap**
@@ -1127,18 +1127,18 @@ export async function bootstrapApp(target: HTMLElement): Promise<void> {
 
 - [ ] **Step 4: Run the load/create test**
 
-Run: `cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app && npm test -- --run tests/domain/loadOrCreateLocalBook.test.ts tests/app/bootstrap.test.ts`
+Run: `cd PROJECT_ROOT/app && npm test -- --run tests/domain/loadOrCreateLocalBook.test.ts tests/app/bootstrap.test.ts`
 Expected: PASS with `2 passed`.
 
 - [ ] **Step 5: Verify the app boots in dev mode**
 
-Run: `cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app && npm run dev -- --host 127.0.0.1 --strictPort`
+Run: `cd PROJECT_ROOT/app && npm run dev -- --host 127.0.0.1 --strictPort`
 Expected: Vite starts and the page shows `Loaded Local Book`.
 
 - [ ] **Step 6: Commit**
 
 ```bash
-cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账
+cd PROJECT_ROOT
 git add app/src/domain app/src/app app/tests/domain
 git commit -m "feat: bootstrap local book foundation"
 ```
@@ -1146,9 +1146,9 @@ git commit -m "feat: bootstrap local book foundation"
 ## Task 6: Add Checkpoint 1 Acceptance Gates
 
 **Files:**
-- Modify: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tests/storage/legacyMigration.test.ts`
-- Modify: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tests/storage/revisionConflict.test.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tests/checkpoint1.acceptance.test.ts`
+- Modify: `PROJECT_ROOT/app/tests/storage/legacyMigration.test.ts`
+- Modify: `PROJECT_ROOT/app/tests/storage/revisionConflict.test.ts`
+- Create: `PROJECT_ROOT/app/tests/checkpoint1.acceptance.test.ts`
 
 - [ ] **Step 1: Write the failing checkpoint acceptance test**
 
@@ -1183,7 +1183,7 @@ describe('checkpoint 1 acceptance', () => {
 
 - [ ] **Step 2: Run the acceptance test to verify it fails**
 
-Run: `cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app && npm test -- --run tests/checkpoint1.acceptance.test.ts`
+Run: `cd PROJECT_ROOT/app && npm test -- --run tests/checkpoint1.acceptance.test.ts`
 Expected: FAIL until the manifest builder and bootstrap path are wired together cleanly.
 
 - [ ] **Step 3: Tighten the migration and revision assertions**
@@ -1224,18 +1224,18 @@ it('writes an operation log entry on successful put', async () => {
 
 - [ ] **Step 4: Run the full checkpoint 1 suite**
 
-Run: `cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app && npm test -- --run`
+Run: `cd PROJECT_ROOT/app && npm test -- --run`
 Expected: PASS with all checkpoint 1 tests green.
 
 - [ ] **Step 5: Build the app one more time**
 
-Run: `cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app && npm run build`
+Run: `cd PROJECT_ROOT/app && npm run build`
 Expected: PASS and produce a build artifact after the full test suite passes.
 
 - [ ] **Step 6: Commit**
 
 ```bash
-cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账
+cd PROJECT_ROOT
 git add app/tests
 git commit -m "test: add checkpoint1 acceptance coverage"
 ```

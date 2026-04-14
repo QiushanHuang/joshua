@@ -22,16 +22,26 @@ export class CategoryRepository {
     return this.db.categories.where('bookId').equals(bookId).sortBy('sortOrder');
   }
 
-  async put(category: Category): Promise<void> {
-    await this.db.transaction('rw', this.db.categories, this.db.operations, async () => {
-      const existing = await this.db.categories.get(category.id);
+  get(categoryId: string): Promise<Category | undefined> {
+    return this.db.categories.get(categoryId);
+  }
 
-      if (existing && category.revision <= existing.revision) {
-        throw new Error('Revision conflict');
+  async put(category: Category): Promise<void> {
+    await this.putMany([category]);
+  }
+
+  async putMany(categories: Category[]): Promise<void> {
+    await this.db.transaction('rw', this.db.categories, this.db.operations, async () => {
+      for (const category of categories) {
+        const existing = await this.db.categories.get(category.id);
+
+        if (existing && category.revision <= existing.revision) {
+          throw new Error('Revision conflict');
+        }
       }
 
-      await this.db.categories.put(category);
-      await this.db.operations.put(buildPutOperation(category));
+      await this.db.categories.bulkPut(categories);
+      await this.db.operations.bulkPut(categories.map((category) => buildPutOperation(category)));
     });
   }
 }

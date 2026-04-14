@@ -14,45 +14,45 @@
 
 ### Application Composition
 
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/app/renderApp.ts`
-- Modify: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/app/bootstrap.ts`
-- Modify: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/app/shell.ts`
-- Modify: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/styles/base.css`
+- Create: `PROJECT_ROOT/app/src/app/renderApp.ts`
+- Modify: `PROJECT_ROOT/app/src/app/bootstrap.ts`
+- Modify: `PROJECT_ROOT/app/src/app/shell.ts`
+- Modify: `PROJECT_ROOT/app/src/styles/base.css`
 
 ### Domain Services
 
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/domain/categories/createCategory.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/domain/categories/listCategoryTree.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/domain/transactions/createTransaction.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/domain/transactions/listTransactionsForBook.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/domain/dashboard/calculateBookSummary.ts`
+- Create: `PROJECT_ROOT/app/src/domain/categories/createCategory.ts`
+- Create: `PROJECT_ROOT/app/src/domain/categories/listCategoryTree.ts`
+- Create: `PROJECT_ROOT/app/src/domain/transactions/createTransaction.ts`
+- Create: `PROJECT_ROOT/app/src/domain/transactions/listTransactionsForBook.ts`
+- Create: `PROJECT_ROOT/app/src/domain/dashboard/calculateBookSummary.ts`
 
 ### Storage Updates
 
-- Modify: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/storage/repositories/categoryRepository.ts`
-- Modify: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/storage/repositories/transactionRepository.ts`
+- Modify: `PROJECT_ROOT/app/src/storage/repositories/categoryRepository.ts`
+- Modify: `PROJECT_ROOT/app/src/storage/repositories/transactionRepository.ts`
 
 ### UI Modules
 
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/modules/dashboard/renderSummaryPanel.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/modules/categories/renderCategoryPanel.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/modules/transactions/renderTransactionPanel.ts`
+- Create: `PROJECT_ROOT/app/src/modules/dashboard/renderSummaryPanel.ts`
+- Create: `PROJECT_ROOT/app/src/modules/categories/renderCategoryPanel.ts`
+- Create: `PROJECT_ROOT/app/src/modules/transactions/renderTransactionPanel.ts`
 
 ### Tests
 
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tests/app/renderApp.test.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tests/domain/createCategory.test.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tests/domain/createTransaction.test.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tests/domain/calculateBookSummary.test.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tests/checkpoint2.acceptance.test.ts`
+- Create: `PROJECT_ROOT/app/tests/app/renderApp.test.ts`
+- Create: `PROJECT_ROOT/app/tests/domain/createCategory.test.ts`
+- Create: `PROJECT_ROOT/app/tests/domain/createTransaction.test.ts`
+- Create: `PROJECT_ROOT/app/tests/domain/calculateBookSummary.test.ts`
+- Create: `PROJECT_ROOT/app/tests/checkpoint2.acceptance.test.ts`
 
 ## Task 1: Mount the Ledger Workspace After Boot
 
 **Files:**
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/app/renderApp.ts`
-- Modify: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/app/bootstrap.ts`
-- Modify: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/app/shell.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tests/app/renderApp.test.ts`
+- Create: `PROJECT_ROOT/app/src/app/renderApp.ts`
+- Modify: `PROJECT_ROOT/app/src/app/bootstrap.ts`
+- Modify: `PROJECT_ROOT/app/src/app/shell.ts`
+- Create: `PROJECT_ROOT/app/tests/app/renderApp.test.ts`
 
 - [ ] **Step 1: Write the failing render integration test**
 
@@ -91,7 +91,7 @@ describe('renderApp', () => {
 
 - [ ] **Step 2: Run the test to verify it fails**
 
-Run: `cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app && npm test -- --run tests/app/renderApp.test.ts`
+Run: `cd PROJECT_ROOT/app && npm test -- --run tests/app/renderApp.test.ts`
 Expected: FAIL because `renderApp` and the panel markup do not exist yet.
 
 - [ ] **Step 3: Implement the render composition**
@@ -147,13 +147,13 @@ await renderApp({
 
 - [ ] **Step 4: Run the render integration test**
 
-Run: `cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app && npm test -- --run tests/app/renderApp.test.ts tests/app/bootstrap.test.ts`
+Run: `cd PROJECT_ROOT/app && npm test -- --run tests/app/renderApp.test.ts tests/app/bootstrap.test.ts`
 Expected: PASS with both tests green.
 
 - [ ] **Step 5: Commit**
 
 ```bash
-cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账
+cd PROJECT_ROOT
 git add app/src/app app/tests/app/renderApp.test.ts
 git commit -m "feat: mount checkpoint2 ledger workspace"
 ```
@@ -161,11 +161,11 @@ git commit -m "feat: mount checkpoint2 ledger workspace"
 ## Task 2: Create and Display Hierarchical Category Trees
 
 **Files:**
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/domain/categories/createCategory.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/domain/categories/listCategoryTree.ts`
-- Modify: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/storage/repositories/categoryRepository.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/modules/categories/renderCategoryPanel.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tests/domain/createCategory.test.ts`
+- Create: `PROJECT_ROOT/app/src/domain/categories/createCategory.ts`
+- Create: `PROJECT_ROOT/app/src/domain/categories/listCategoryTree.ts`
+- Modify: `PROJECT_ROOT/app/src/storage/repositories/categoryRepository.ts`
+- Create: `PROJECT_ROOT/app/src/modules/categories/renderCategoryPanel.ts`
+- Create: `PROJECT_ROOT/app/tests/domain/createCategory.test.ts`
 
 - [ ] **Step 1: Write the failing category domain test**
 
@@ -212,7 +212,7 @@ describe('createCategory', () => {
 
 - [ ] **Step 2: Run the category test to verify it fails**
 
-Run: `cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app && npm test -- --run tests/domain/createCategory.test.ts`
+Run: `cd PROJECT_ROOT/app && npm test -- --run tests/domain/createCategory.test.ts`
 Expected: FAIL because the category domain services do not exist.
 
 - [ ] **Step 3: Implement repository queries and creation service**
@@ -332,13 +332,13 @@ export async function renderCategoryPanel({ db, book, target, onChange }: Catego
 
 - [ ] **Step 5: Run the category test**
 
-Run: `cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app && npm test -- --run tests/domain/createCategory.test.ts tests/app/renderApp.test.ts`
+Run: `cd PROJECT_ROOT/app && npm test -- --run tests/domain/createCategory.test.ts tests/app/renderApp.test.ts`
 Expected: PASS with the tree query and render integration green.
 
 - [ ] **Step 6: Commit**
 
 ```bash
-cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账
+cd PROJECT_ROOT
 git add app/src/domain/categories app/src/modules/categories app/src/storage/repositories/categoryRepository.ts app/tests/domain/createCategory.test.ts
 git commit -m "feat: add local category workspace"
 ```
@@ -346,14 +346,14 @@ git commit -m "feat: add local category workspace"
 ## Task 3: Record Transactions and Refresh the Dashboard
 
 **Files:**
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/domain/transactions/createTransaction.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/domain/transactions/listTransactionsForBook.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/domain/dashboard/calculateBookSummary.ts`
-- Modify: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/storage/repositories/transactionRepository.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/modules/dashboard/renderSummaryPanel.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/modules/transactions/renderTransactionPanel.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tests/domain/createTransaction.test.ts`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tests/domain/calculateBookSummary.test.ts`
+- Create: `PROJECT_ROOT/app/src/domain/transactions/createTransaction.ts`
+- Create: `PROJECT_ROOT/app/src/domain/transactions/listTransactionsForBook.ts`
+- Create: `PROJECT_ROOT/app/src/domain/dashboard/calculateBookSummary.ts`
+- Modify: `PROJECT_ROOT/app/src/storage/repositories/transactionRepository.ts`
+- Create: `PROJECT_ROOT/app/src/modules/dashboard/renderSummaryPanel.ts`
+- Create: `PROJECT_ROOT/app/src/modules/transactions/renderTransactionPanel.ts`
+- Create: `PROJECT_ROOT/app/tests/domain/createTransaction.test.ts`
+- Create: `PROJECT_ROOT/app/tests/domain/calculateBookSummary.test.ts`
 
 - [ ] **Step 1: Write the failing transaction and summary tests**
 
@@ -407,7 +407,7 @@ describe('createTransaction', () => {
 
 - [ ] **Step 2: Run the transaction tests to verify they fail**
 
-Run: `cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app && npm test -- --run tests/domain/createTransaction.test.ts tests/domain/calculateBookSummary.test.ts`
+Run: `cd PROJECT_ROOT/app && npm test -- --run tests/domain/createTransaction.test.ts tests/domain/calculateBookSummary.test.ts`
 Expected: FAIL because the transaction services and summary logic do not exist.
 
 - [ ] **Step 3: Implement transaction creation and summary services**
@@ -495,13 +495,13 @@ const transactionOptions = categories
 
 - [ ] **Step 5: Run the transaction and render tests**
 
-Run: `cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app && npm test -- --run tests/domain/createTransaction.test.ts tests/domain/calculateBookSummary.test.ts tests/app/renderApp.test.ts`
+Run: `cd PROJECT_ROOT/app && npm test -- --run tests/domain/createTransaction.test.ts tests/domain/calculateBookSummary.test.ts tests/app/renderApp.test.ts`
 Expected: PASS with summary and transaction tests green.
 
 - [ ] **Step 6: Commit**
 
 ```bash
-cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账
+cd PROJECT_ROOT
 git add app/src/domain/dashboard app/src/domain/transactions app/src/modules/dashboard app/src/modules/transactions app/src/storage/repositories/transactionRepository.ts app/tests/domain/createTransaction.test.ts app/tests/domain/calculateBookSummary.test.ts
 git commit -m "feat: add local transaction ledger flow"
 ```
@@ -509,8 +509,8 @@ git commit -m "feat: add local transaction ledger flow"
 ## Task 4: Add Checkpoint 2 Acceptance and Styling Gates
 
 **Files:**
-- Modify: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/src/styles/base.css`
-- Create: `/Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app/tests/checkpoint2.acceptance.test.ts`
+- Modify: `PROJECT_ROOT/app/src/styles/base.css`
+- Create: `PROJECT_ROOT/app/tests/checkpoint2.acceptance.test.ts`
 
 - [ ] **Step 1: Write the failing checkpoint 2 acceptance test**
 
@@ -566,7 +566,7 @@ describe('checkpoint 2 acceptance', () => {
 
 - [ ] **Step 2: Run the acceptance test to verify it fails**
 
-Run: `cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app && npm test -- --run tests/checkpoint2.acceptance.test.ts`
+Run: `cd PROJECT_ROOT/app && npm test -- --run tests/checkpoint2.acceptance.test.ts`
 Expected: FAIL until the app renders the ledger workspace and domain flows correctly.
 
 - [ ] **Step 3: Add the checkpoint 2 workspace styling**
@@ -599,18 +599,18 @@ Expected: FAIL until the app renders the ledger workspace and domain flows corre
 
 - [ ] **Step 4: Run the full checkpoint 2 suite**
 
-Run: `cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app && npm test -- --run`
+Run: `cd PROJECT_ROOT/app && npm test -- --run`
 Expected: PASS with checkpoint 1 and checkpoint 2 tests all green.
 
 - [ ] **Step 5: Build the app**
 
-Run: `cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账/app && npm run build`
+Run: `cd PROJECT_ROOT/app && npm run build`
 Expected: PASS and produce an updated production bundle.
 
 - [ ] **Step 6: Commit**
 
 ```bash
-cd /Users/joshua/Desktop/Qiushan_Studio/6_Personal/可视化记账
+cd PROJECT_ROOT
 git add app/src/styles/base.css app/tests/checkpoint2.acceptance.test.ts
 git commit -m "test: add checkpoint2 local ledger acceptance"
 ```

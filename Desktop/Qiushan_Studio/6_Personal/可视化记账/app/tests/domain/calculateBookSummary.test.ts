@@ -94,7 +94,7 @@ describe('calculateBookSummary', () => {
     expect(summary.netAmount).toBe(2500);
   });
 
-  it('does not mix unsupported foreign currencies into the base-currency summary', async () => {
+  it('does not mix unresolved foreign currencies into the base-currency summary', async () => {
     const book = await loadOrCreateLocalBook(db);
     const foreignCash = await createCategory(db, {
       bookId: book.id,
@@ -119,6 +119,6 @@ describe('calculateBookSummary', () => {
 
     expect(summary.assetAmount).toBe(0);
     expect(summary.netAmount).toBe(0);
-    expect(summary.unsupportedCurrencies).toEqual(['SGD']);
+    expect(summary.unresolvedCurrencies).toEqual(['SGD']);
   });
 });
