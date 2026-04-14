@@ -745,6 +745,7 @@ tr:hover {
 .analytics-balanced-row > .card,
 .analytics-balanced-row > .analytics-card-stack {
   min-height: 0;
+  height: 100%;
 }
 
 .analytics-span-2 {

@@ -836,7 +836,7 @@ export async function renderAnalyticsPanel({
         }
       </section>
       <div class="analytics-rich-grid">
-        <section class="card analytics-span-4">
+        <section class="card analytics-span-6">
           <div class="card-header">
             <h3>收入分析</h3>
             <span class="tag">${escapeHtml(snapshot.analysisRange.label)}</span>
@@ -860,7 +860,7 @@ export async function renderAnalyticsPanel({
             areaClass: 'income-area'
           })}
         </section>
-        <section class="card analytics-span-4">
+        <section class="card analytics-span-6">
           <div class="card-header">
             <h3>支出分析</h3>
             <span class="tag">${escapeHtml(snapshot.analysisRange.label)}</span>
@@ -884,7 +884,7 @@ export async function renderAnalyticsPanel({
             areaClass: 'expense-area'
           })}
         </section>
-        <section class="card analytics-span-4">
+        <section class="card analytics-span-6">
           <div class="card-header">
             <h3>净收入分析</h3>
             <span class="tag">${escapeHtml(snapshot.analysisRange.label)}</span>
@@ -905,8 +905,7 @@ export async function renderAnalyticsPanel({
           </div>
           ${buildLineChart(analysisNetValues, snapshot.analysisSeries.map((item) => item.label), '净收入分析趋势图')}
         </section>
-        <div class="analytics-balanced-row" data-role="forecast-balance-row">
-          <section class="card analytics-span-7">
+        <section class="card analytics-span-6" data-role="forecast-card">
           <div class="card-header">
             <h3>未来预计曲线</h3>
             <span class="tag">周期扣款 / 工资预计</span>
@@ -915,8 +914,10 @@ export async function renderAnalyticsPanel({
             lineClass: 'forecast-line',
             areaClass: 'forecast-area'
           })}
-          </section>
-          <section class="card analytics-span-5" data-role="pie-compositions-card">
+        </section>
+        <div class="analytics-balanced-row" data-role="composition-balance-row">
+          <div class="analytics-card-stack analytics-card-stack--balanced analytics-span-5" data-role="composition-side-stack">
+            <section class="card" data-role="pie-compositions-card">
             <div class="card-header">
               <h3>饼图构成</h3>
               <span class="tag">${escapeHtml(snapshot.pieRange.label)}</span>
@@ -971,10 +972,8 @@ export async function renderAnalyticsPanel({
                 )
                 .join('')}
             </div>
-          </section>
-        </div>
-        <div class="analytics-balanced-row" data-role="composition-balance-row">
-          <section class="card analytics-span-5" data-role="cashflow-heatmap-card">
+            </section>
+            <section class="card" data-role="cashflow-heatmap-card">
             <div class="card-header">
               <h3>周期现金流热区</h3>
               <span class="tag">自动规则聚合</span>
@@ -1003,7 +1002,8 @@ export async function renderAnalyticsPanel({
                       .join('')
               }
             </div>
-          </section>
+            </section>
+          </div>
           <section class="card analytics-span-7" data-role="category-composition-card">
           <div class="card-header">
             <h3>分类构成</h3>

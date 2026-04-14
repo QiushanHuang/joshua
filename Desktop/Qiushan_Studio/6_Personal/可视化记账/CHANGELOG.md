@@ -27,6 +27,8 @@
 - Changed the analytics tree snapshot to start folded by default and added one-click expand-all / collapse-all controls.
 - Split the lower analytics area into dedicated forecast, composition, and snapshot rows so the right edge stays aligned with the upper charts.
 - Moved the cashflow heat-zone and category-composition cards into the same balanced row and paired the radar/custom cards beside the tree snapshot to reduce bottom whitespace.
+- Restored the forecast chart to the upper analysis grid so it sits alongside income, expense, and net-income panels again.
+- Restacked pie composition above the cashflow heat-zone in the left column and let category composition span the aligned right column.
 
 ### Stability and compatibility
 - Preserved template, rule, and transaction compatibility for older local data and legacy imports.

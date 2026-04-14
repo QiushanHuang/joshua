@@ -142,15 +142,24 @@ describe('renderAnalyticsPanel', () => {
     expect(target.querySelector('details[data-role="tree-node"]')).not.toBeNull();
     expect(target.querySelector('[data-role="expand-tree-all"]')).not.toBeNull();
     expect(target.querySelector('[data-role="collapse-tree-all"]')).not.toBeNull();
-    expect(target.querySelector('[data-role="forecast-balance-row"]')).not.toBeNull();
     expect(target.querySelector('[data-role="composition-balance-row"]')).not.toBeNull();
     expect(target.querySelector('[data-role="snapshot-balance-row"]')).not.toBeNull();
 
     const configCard = target.querySelector<HTMLElement>('[data-role="analytics-config"]');
     const historyCard = target.querySelector<HTMLElement>('[data-role="historical-comparison"]');
-    const forecastRow = target.querySelector<HTMLElement>('[data-role="forecast-balance-row"]');
+    const incomeCard = Array.from(target.querySelectorAll<HTMLElement>('.analytics-rich-grid > .card')).find((card) =>
+      card.textContent?.includes('收入分析')
+    );
+    const expenseCard = Array.from(target.querySelectorAll<HTMLElement>('.analytics-rich-grid > .card')).find((card) =>
+      card.textContent?.includes('支出分析')
+    );
+    const netCard = Array.from(target.querySelectorAll<HTMLElement>('.analytics-rich-grid > .card')).find((card) =>
+      card.textContent?.includes('净收入分析')
+    );
+    const forecastCard = target.querySelector<HTMLElement>('[data-role="forecast-card"]');
     const compositionRow = target.querySelector<HTMLElement>('[data-role="composition-balance-row"]');
     const snapshotRow = target.querySelector<HTMLElement>('[data-role="snapshot-balance-row"]');
+    const compositionSideStack = target.querySelector<HTMLElement>('[data-role="composition-side-stack"]');
     const pieCard = target.querySelector<HTMLElement>('[data-role="pie-compositions-card"]');
     const heatmapCard = target.querySelector<HTMLElement>('[data-role="cashflow-heatmap-card"]');
     const compositionCard = target.querySelector<HTMLElement>('[data-role="category-composition-card"]');
@@ -162,9 +171,13 @@ describe('renderAnalyticsPanel', () => {
     if (
       !configCard ||
       !historyCard ||
-      !forecastRow ||
+      !incomeCard ||
+      !expenseCard ||
+      !netCard ||
+      !forecastCard ||
       !compositionRow ||
       !snapshotRow ||
+      !compositionSideStack ||
       !pieCard ||
       !heatmapCard ||
       !compositionCard ||
@@ -177,16 +190,21 @@ describe('renderAnalyticsPanel', () => {
     }
 
     expect(configCard.compareDocumentPosition(historyCard) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
-    expect(forecastRow.contains(pieCard)).toBe(true);
+    expect(incomeCard.compareDocumentPosition(expenseCard) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(expenseCard.compareDocumentPosition(netCard) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(netCard.compareDocumentPosition(forecastCard) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(compositionSideStack.contains(pieCard)).toBe(true);
+    expect(compositionSideStack.contains(heatmapCard)).toBe(true);
     expect(compositionRow.contains(heatmapCard)).toBe(true);
     expect(compositionRow.contains(compositionCard)).toBe(true);
     expect(snapshotRow.contains(snapshotSideStack)).toBe(true);
     expect(snapshotRow.contains(treeSnapshotCard)).toBe(true);
     expect(snapshotSideStack.contains(radarCard)).toBe(true);
     expect(snapshotSideStack.contains(insightCard)).toBe(true);
-    expect(forecastRow.compareDocumentPosition(compositionRow) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(forecastCard.compareDocumentPosition(compositionRow) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(compositionRow.compareDocumentPosition(snapshotRow) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
-    expect(heatmapCard.compareDocumentPosition(compositionCard) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(pieCard.compareDocumentPosition(heatmapCard) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(compositionSideStack.compareDocumentPosition(compositionCard) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(radarCard.compareDocumentPosition(insightCard) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
 
     const compositionForm = target.querySelector<HTMLFormElement>('[data-role="composition-controls"]');
